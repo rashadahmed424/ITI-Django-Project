@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <title>
+            {% block title %} {% endblock %}
+        </title>
+        <style>
+            .main{
+                text-align: center;
+            }
+            nav{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        
+        }
+        nav a:hover{
+            color:#32348f;
+            transform: scale(1.1);
+
+        }
+        .left a, .right a{
+            display: inline-block;
+            color: black;
+            font-weight: bold;
+            font-size: 16px;
+            text-decoration: none;
+            cursor: pointer;
+            
+        }
+        .left{
+            padding: 10px 20px;
+        }
+        .right a {
+            padding: 10px 40px;
+        }
+
+
+
+            .button {
+    display: inline-block;
+    width: 115px;
+    height: 25px;
+    background: #32348f;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    line-height: 25px;
+    margin: 100px 130px;
+    transition: 0.9s ease;
+
+}
+.button:hover{
+    transform: scale(1.1);
+    background-color: blueviolet;
+}
+    footer{
+        margin: 210px 0px 0px 0px;
+        display:block;
+        background-color:#32348f;
+        padding: 10px 200px 10px 10px;
+        border-radius: 10%;
+        color:white;
+    }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <div class="left">
+                <a href="#">Library</a>
+            </div>
+            <div class="right">
+                <a href="#">Books</a>
+                <a href="#">Contact US</a>
+                <a href="#">About Us</a>
+            </div>
+        </nav>
+
+        <div class='main'>
+            {% block content %}
+            {% endblock %}
+        </div>
+            <footer>
+                <h3 style="text-align: center;">Team: Rashad, Amr, Omar &copy;</h3>
+            </footer>
+    </body>
+</html>
