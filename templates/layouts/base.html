@@ -3,14 +3,62 @@
         <title>
             {% block title %} {% endblock %}
         </title>
+        
         <style>
-            .main{
-                text-align: center;
+            .form-group label {
+                display: block;
+                font-weight: bold;
+                margin-bottom: 5px;
+                color: #32348f;
             }
+            .form-group input[type="text"],
+            .book-form input[type="number"],
+            .book-form input[type="file"],
+            .book-form textarea,
+            .book-form select {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                font-size: 16px;
+            }
+            .form-group{
+                display: block;
+                margin: 10px;
+               
+
+            }
+            .card{
+                display: inline-block;
+                width:18rem;
+                height: auto;
+                border: #32348f solid 3px;
+                border-radius: 10px;
+                padding: 5px;
+                margin: 5px;
+            }
+
+
+         html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .main {
+            flex: 1; }
             nav{
             display: flex;
             justify-content: space-between;
             align-items: center;
+            background-color: #ccc;
+            padding: 10px;
         
         }
         nav a:hover{
@@ -31,7 +79,7 @@
             padding: 10px 20px;
         }
         .right a {
-            padding: 10px 40px;
+            padding: 10px 50px;
         }
 
 
@@ -48,31 +96,30 @@
     color: white;
     font-weight: bold;
     line-height: 25px;
-    margin: 100px 130px;
-    transition: 0.9s ease;
+    transition: 0.7s ease;
 
 }
-.button:hover{
-    transform: scale(1.1);
-    background-color: blueviolet;
-}
-    footer{
-        margin: 210px 0px 0px 0px;
-        display:block;
-        background-color:#32348f;
-        padding: 10px 200px 10px 10px;
-        border-radius: 10%;
-        color:white;
+    .button:hover{
+        transform: scale(1.1);
+        background-color: blueviolet;
     }
-        </style>
+   
+    footer {
+        background: #32348f;
+        color: white;
+        text-align: center;
+        padding: 15px;
+    }    
+ </style>
     </head>
     <body>
         <nav>
             <div class="left">
-                <a href="#">Library</a>
+                <a href="{% url 'admin.main' %}">Library</a>
             </div>
             <div class="right">
-                <a href="#">Books</a>
+                <a href="{% url 'books.index' %}">Books</a>
+                <a href="{% url 'students.index' %}">Students</a>
                 <a href="#">Contact US</a>
                 <a href="#">About Us</a>
             </div>
@@ -82,8 +129,9 @@
             {% block content %}
             {% endblock %}
         </div>
-            <footer>
-                <h3 style="text-align: center;">Team: Rashad, Amr, Omar &copy;</h3>
-            </footer>
+
+        <footer>
+            <h3>Team: Rashad, Amr, Omar &copy;</h3>
+        </footer>
     </body>
 </html>

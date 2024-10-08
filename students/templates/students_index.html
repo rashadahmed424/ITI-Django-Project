@@ -1,0 +1,29 @@
+{% extends 'layouts/base.html' %}
+{% block title %}Books{% endblock %}
+
+{% block content %}
+
+{% for student in students%}
+<div class="card"  >
+    <div >
+      <h3>Name:     {{student.name}}</h3>
+      <h4>Email: {{ student.email }}</h4>
+      <h4>Track: {{student.track}}</h4>
+      <h5>Borrowed Books: {% for book in student.borrowed_books.all %}
+        <ul>
+          <li>{{ book }}</li>
+        </ul>
+        {% endfor %}
+      </h5>
+
+        <a href="{{  students.show_url }}" class="button" style="padding: 5px;margin: 5px;">Show</a>
+        <a href="{{ students.show_url }}" class="button" style="padding: 5px;margin: 5px;">Edit</a>
+
+        <a href="{{students.show_url}}" class="button" style="padding: 5px;margin: 5px;">Delete</a>
+    </div>
+  </div>
+
+
+{% endfor %}
+
+{% endblock %}

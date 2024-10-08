@@ -1,10 +1,14 @@
 {% extends 'layouts/base.html' %}
 {% block title%}Book Library{% endblock %}
+
 {% block content %}
 <h3 style="text-align: center;">Wlcome to Book Library</h3>
 
-
-<a href="" class="button"> All Books</a>
-<a href="" class="button">Borrowed Books</a>
-<a href="" class="button">All Users</a>
+<ul style="text-align: center;">
+   <li><a href="{% url 'books.index' %}" class="button" style="margin: 10px;"> All Books</a>
+        <a href="{% url 'book_create' %}" class="button" style="margin: 10px;">New Book</a>    
+   </li> 
+    <li><a href="" class="button" style="margin: 10px;">Borrowed Books</a></li>
+   <li><a href="{% url 'students.index' %}" class="button" style="margin: 10px;">All Students</a></li> 
+</ul>
 {% endblock %}
