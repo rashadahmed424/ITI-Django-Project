@@ -12,6 +12,7 @@
                 color: #32348f;
             }
             .form-group input[type="text"],
+            .form-group input[type="number"],
             .book-form input[type="number"],
             .book-form input[type="file"],
             .book-form textarea,
@@ -30,12 +31,13 @@
             }
             .card{
                 display: inline-block;
-                width:18rem;
+                width:auto;
                 height: auto;
                 border: #32348f solid 3px;
                 border-radius: 10px;
                 padding: 5px;
                 margin: 5px;
+                text-align: center;
             }
 
 
@@ -115,10 +117,10 @@
     <body>
         <nav>
             <div class="left">
-                <a href="{% url 'admin.main' %}">Library</a>
+                <a href="{% url 'admin_main' %}">Library</a>
             </div>
             <div class="right">
-                <a href="{% url 'books.index' %}">Books</a>
+                <a href="{% url 'books_index' %}">Books</a>
                 <a href="{% url 'students.index' %}">Students</a>
                 <a href="#">Contact US</a>
                 <a href="#">About Us</a>

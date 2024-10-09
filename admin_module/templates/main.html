@@ -5,10 +5,21 @@
 <h3 style="text-align: center;">Wlcome to Book Library</h3>
 
 <ul style="text-align: center;">
-   <li><a href="{% url 'books.index' %}" class="button" style="margin: 10px;"> All Books</a>
+   <li><a href="{% url 'books_index' %}" class="button" style="margin: 10px;"> All Books</a>
         <a href="{% url 'book_create' %}" class="button" style="margin: 10px;">New Book</a>    
    </li> 
     <li><a href="" class="button" style="margin: 10px;">Borrowed Books</a></li>
-   <li><a href="{% url 'students.index' %}" class="button" style="margin: 10px;">All Students</a></li> 
+   <li><a href="{% url 'students.index' %}" class="button" style="margin: 10px;">All Students</a>
+     <a href="{% url 'search_student' %}" class="button" style="margin: 10px;">Find Student</a>
+</li> 
+   <li><a href="{% url 'change_password' %}" class="button" style="margin: 10px; width: 270px;">Change Admin Password</a></li> 
+   <li>
+   {% if user.is_authenticated %}
+    <a href="{% url 'login' %}" class="button" style="margin: 10px; width: 270px;" >Logout</a>
+{% else %}
+    <a href="{% url 'login' %}" class="button" style="margin: 10px; width: 270px;">Login</a>
+{% endif %}
+</li>
+
 </ul>
 {% endblock %}

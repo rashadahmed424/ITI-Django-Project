@@ -9,8 +9,8 @@
       <h4>Available: {{ book.available }}</h4>
       <h4>Total Copies:  {{ book.total }} </h4>
       <p>{{book.overview}}</p>
-        <a href="{% url 'books.index' %}" class="button" style="padding: 5px;margin: 5px;">Back to Books</a>
-        <a href="{{ book.edite_url}}" class="button" style="padding: 5px;margin: 5px;">Edit</a>
+        <a href="{% url 'books_index' %}" class="button" style="padding: 5px;margin: 5px;">Back to Books</a>
+        <a href="{{ book.edit_url}}" class="button" style="padding: 5px;margin: 5px;">Edit</a>
 
         <a href="{{ book.delete_url }}" class="button" style="padding: 5px;margin: 5px;">Delete</a>
     </div>

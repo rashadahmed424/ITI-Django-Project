@@ -1,0 +1,19 @@
+{% extends 'layouts/base.html' %}
+{% block title%}Login{% endblock %}
+
+{% block content %}
+
+<h2 style="color:#32348f; text-align: center;">Login</h2>
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        {{ form.as_p }}
+    </div>
+    <div class="form-group">
+    <button type="submit" class="button" style="height: auto;">Login</button>
+    </div>
+</form>
+{% if next %}
+    <p>You must be logged in to view this page: <a href="{{ next }}">Back</a></p>
+{% endif %}
+{% endblock %}

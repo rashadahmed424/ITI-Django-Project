@@ -31,8 +31,8 @@ class books(models.Model):
         return url
     
     @property
-    def edite_url(self):
-        url=reverse('book_edite',args=[self.id])
+    def edit_url(self):
+        url=reverse('book_edit',args=[self.id])
         return url
     
     def get_absolute_url(self):

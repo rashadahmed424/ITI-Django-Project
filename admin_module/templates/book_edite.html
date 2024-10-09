@@ -1,9 +1,10 @@
 {% extends 'layouts/base.html' %}
-{% block title %}Edite Book{% endblock %}
+{% block title %}Edit Book{% endblock %}
 {% block content %}
+<h2 style="color: #32348f; text-align: center;">Edit Book</h2>
 
     
-    <form method="post" enctype="multipart/form-data" style=" justify-content: center;">
+    <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
 
         <div class="form-group">
