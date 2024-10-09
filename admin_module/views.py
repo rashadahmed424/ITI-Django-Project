@@ -49,11 +49,11 @@ class UpdatePass(LoginRequiredMixin, PasswordChangeView):
     template_name = 'change_password.html'
     success_url = reverse_lazy('password_changed')  # Redirect to the new URL
 
-class custompassupdate(PasswordChangeDoneView):
+class custompassupdate(LoginRequiredMixin,PasswordChangeDoneView):
     template_name='change_done.html'
     
 
-
+@login_required
 def search_student(request):
     form = searchform(request.GET or None)
     student = None
@@ -64,3 +64,4 @@ def search_student(request):
   
 
     return render(request, 'search_student.html', {'form': form, 'student': student})
+

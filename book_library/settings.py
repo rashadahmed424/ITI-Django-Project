@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'admin_module.apps.AdminModuleConfig',
     'students.apps.StudentsConfig',
     'django_cleanup.apps.CleanupConfig',
+    'accounts.apps.AccountsConfig',
 ]
 
 MIDDLEWARE = [
@@ -134,6 +135,4 @@ MEDIA_URL='/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
-LOGIN_URL = '/admin_module/login/'  # Redirect to this URL if not authenticated
-LOGIN_REDIRECT_URL = '/admin_module/' # Redirect here after successful login
-LOGOUT_REDIRECT_URL = '/admin_module/login/'  # Redirect here after logout
+
