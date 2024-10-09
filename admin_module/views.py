@@ -53,6 +53,7 @@ class custompassupdate(LoginRequiredMixin,PasswordChangeDoneView):
     template_name='change_done.html'
     
 
+
 @login_required
 def search_student(request):
     form = searchform(request.GET or None)
@@ -65,3 +66,9 @@ def search_student(request):
 
     return render(request, 'search_student.html', {'form': form, 'student': student})
 
+
+def about(request):
+    return render(request,'about.html')
+
+def contact(request):
+    return render(request,'contact.html')

@@ -1,7 +1,11 @@
 from django.contrib import admin
 from django.urls import path,include
 from django.contrib.auth import urls,views as auth_views
-from admin_module.views import main,listbooks,bookdetails,bookdelete,bookedite,bookcreate,UpdatePass,custompassupdate,search_student
+from admin_module.views import ( main,listbooks,bookdetails,
+    bookdelete,bookedite,bookcreate,
+    UpdatePass,custompassupdate,
+    search_student,about,contact
+)
 
 urlpatterns = [
     path('', main, name='admin_main'),  # Corrected name for better readability
@@ -13,6 +17,8 @@ urlpatterns = [
     path('change-password/', UpdatePass.as_view(), name='change_password'),
     path('password-changed/', custompassupdate.as_view(), name='password_changed'), 
     path('search/', search_student, name='search_student'),
+    path('about/',about,name='about'),
+    path('contact/',contact,name='contact')
 
 
 
