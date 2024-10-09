@@ -15,7 +15,7 @@
    <li><a href="{% url 'change_password' %}" class="button" style="margin: 10px; width: 270px;">Change Admin Password</a></li> 
    <li>
    {% if user.is_authenticated %}
-    <a href="{% url 'login' %}" class="button" style="margin: 10px; width: 270px;" >Logout</a>
+    <a href="{% url 'logout' %}" class="button" style="margin: 10px; width: 270px;" >Logout</a>
 {% else %}
     <a href="{% url 'login' %}" class="button" style="margin: 10px; width: 270px;">Login</a>
 {% endif %}
