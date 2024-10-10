@@ -1,0 +1,18 @@
+<!-- view_books.html -->
+<h1>All Books</h1>
+<ul>
+    {% for book in books %}
+        <li>{{ book.title }} by {{ book.author }} - <a href="{% url 'book_detail' book.id %}">Details</a></li>
+    {% endfor %}
+</ul>
+<!-- book_detail.html -->
+<h1>{{ book.title }}</h1>
+<p>Author: {{ book.author }}</p>
+<p>ISBN: {{ book.isbn }}</p>
+<p>Available: {{ book.available }}</p>
+{% if book.available %}
+    <form method="POST" action="{% url 'borrow_book' book.id %}">
+        {% csrf_token %}
+        <button type="submit">Borrow Book</button>
+    </form>
+{% endif %}
