@@ -125,7 +125,6 @@
                 {% if request.user.is_authenticated %}
                 <form  method="post"  action="{% url 'logout' %}" style="display: inline-block;">
                     {% csrf_token %}
-                    
                     <input type="submit" value="Logout" style="background-color: #ccc; border: none; font-weight: bold;
                     cursor: pointer;">
                 </form>
@@ -134,6 +133,7 @@
                 {% endif %}
                 <a href="{% url 'contact' %}">Contact US</a>
                 <a href="{% url 'about' %}">About Us</a>
+            <a href="{% url 'signup' %}">SignUp as student</a>
             </div>
         </nav>
 
