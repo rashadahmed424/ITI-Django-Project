@@ -1,7 +1,11 @@
-from django.shortcuts import render, redirect
 from django.views.generic import ListView
-from django.views.generic.edit import CreateView,UpdateView,DeleteView
+
+from students.backends import User
+from students.migrations.mysite.library.students.migrations.models import Student
 from students.models import students
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
+from django.contrib import messages
 # Create your views here.
 class liststudents(ListView):
     model=students
@@ -25,3 +29,25 @@ def signup_view(request):
         return redirect('students.index')
 
     return render(request, 'students_signup.html')
+
+
+def login_view(request):
+    if request.method == 'POST':
+        email = request.POST['email']
+        password = request.POST['password']
+
+        # Try to authenticate the user using the email
+        try:
+            user = Student.objects.get(email=email)  # Get user by email
+            student = authenticate(request, username=user.username, password=password)  # Authenticate using username and password
+
+            if student is not None:
+                login(request, student)
+                return redirect('/admin_module/books/')
+            else:
+                print("l,a;lmf;m")
+                messages.error(request, 'Invalid password.')
+        except User.DoesNotExist:
+            messages.error(request, 'No user found with that email.')
+
+    return render(request, 'students_login.html')

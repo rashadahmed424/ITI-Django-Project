@@ -2,9 +2,8 @@ from django.shortcuts import render,reverse, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import ListView,DetailView
 from django.views.generic.edit import CreateView,DeleteView,UpdateView
-from admin_module.models import books,students,borrowed_books
+from admin_module.models import books,students
 from admin_module.forms import booksform,searchform
-from django.contrib.auth.models import User 
 from django.contrib.auth.views import PasswordChangeView,PasswordChangeDoneView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import  login_required
@@ -18,13 +17,13 @@ def main(request):
 
 
     
-class listbooks(LoginRequiredMixin,ListView):
+class listbooks(ListView):
     model = books
     template_name = 'books_index.html'
     context_object_name = 'books'
 
 
-class bookdetails(LoginRequiredMixin,DetailView):
+class bookdetails(DetailView):
     model=books
     template_name='book_detail.html'
     context_object_name='book'
